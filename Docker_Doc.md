@@ -2,10 +2,8 @@
 [Intoduction to Docker](#introduction-to-docker)  
 [Advantages of Docker](#advantages-of-docker)  
 [Prerequisites](#prerequisites)  
-[Installation Step](#installation-step)  
-[Working of Docker](#working-of-docker)  
-[Docker Volume](#docker-volume)  
-[Docker Network](#docker-network)  
+[Step by step Installation](#step-by-step-installation)  
+[Working of Docker](#working-of-docker)   
 
 
 
@@ -87,7 +85,7 @@ UBUNTU_CODENAME=jammy
 Definition: A popular open-source Linux distribution based on Debian. It is widely used for server and desktop environments.
 
 
-# Installation Step
+# Step by step Installation
 
 ## Add Docker's official GPG key:
 ```
@@ -653,10 +651,14 @@ sudo vi Dockerfile
 ### Dockerfile:
 A text file that contains instructions for building a Docker image. It specifies a base image, sets up the environment, installs dependencies, and defines the application to run.
 
-## To see the environmental variable
-
+Example of Dockerfile  
 ```
-env
+  FROM node:latest
+  LABEL description="A demo Dockerfile for build Docsify."
+  WORKDIR /docs
+  RUN npm install -g docsify-cli@latest
+  EXPOSE 3000/tcp
+  ENTRYPOINT docsify serve .
 ```
 
 # FEW DOCKER FILE COMMANDS
